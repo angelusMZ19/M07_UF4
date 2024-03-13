@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDENT</title>
-</head>
-<body>
+
     
    
     {% extends 'index_centre.html' %}
@@ -15,26 +8,25 @@
         
         <tr>
             <th>NOM</th>
-            <th>SURNAME</th>
-            <th>CORREU</th>
-            <th>CURS</th>
+            <th>SURNAME1</th>
+            <th>SURNAME2</th>
+            <th>EMAIL</th>
+            <th>COURSE</th>
             <th>MODULS</th>
         </tr>
 
-        {% for students_key, students in students.items %}
+        {% for muchacho in students %}
         <tr>
-            <td>{{ students.nom }}</td>
-            <td>{{ students.surname1 }} {{ professor.surname2 }}</td>
-            <td>{{ students.correu }}</td>
-            <td>{{ students.curs }}</td>
-            <td>{{ students.moduls }}</td>
+            <td>{{ muchacho.nom }}</td>
+            <td>{{ muchacho.surname1 }}</td>
+            <td>{{ muchacho.surname2 }}</td>
+            <td>{{ muchacho.email }}</td>
+            <td>{{ muchacho.course }}</td>
+            <td>{{ muchacho.moduls }}</td>
             
         </tr>
         {% endfor %}
     </table>
-
-    <a href="{% url 'students' %}">Go back</a>
+<br/>
+    <!-- <a href="{% url 'students' %}">Go back</a> -->
     {% endblock %}
-    
-</body>
-</html>
