@@ -1,227 +1,229 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+# 
+from django.template import loader
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Hello world")
-# aqui van los datos de los estudiantes 
+    template=loader.get_template('index_centre.html')
+    return HttpResponse(template.render())
 
 def students(request):
     students = [
         {
             'id': 1,
             'nom': 'Oscar',
-            'cognom1': 'Perez',
-            'cognom2': 'Mengual',
-            'correu': 'oscar@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Perez',
+            'surname2': 'Mengual',
+            'email': 'oscar@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 2,
             'nom': 'Adria',
-            'cognom1': 'Garcia',
-            'cognom2': 'Perez',
-            'correu': 'adria@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Garcia',
+            'surname2': 'Perez',
+            'email': 'adria@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 3,
             'nom': 'Gemma',
-            'cognom1': 'Garrigosa',
-            'cognom2': 'Frances',
-            'correu': 'gemma@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Garrigosa',
+            'surname2': 'Frances',
+            'email': 'gemma@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 4,
             'nom': 'Facundo Calixto',
-            'cognom1': 'Barrios',
-            'cognom2': '',
-            'correu': 'facundo@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Barrios',
+            'surname2': '',
+            'email': 'facundo@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 5,
-            'nom': 'Angelo',
-            'cognom1': 'Montenegro',
-            'cognom2': 'Zavala',
-            'correu': 'angelo@iticbcn.cat',
-            'curs': 'DAW2A',
+            'nom': 'Angelo Enrique',
+            'surname1': 'Montenegro',
+            'surname2': 'Zavala',
+            'email': 'angelo@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 6,
             'nom': 'Neus',
-            'cognom1': 'Bravo',
-            'cognom2': 'Arias',
-            'correu': 'neus@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Bravo',
+            'surname2': 'Arias',
+            'email': 'neus@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 7,
             'nom': 'Joana Jiayun',
-            'cognom1': 'Lin',
-            'cognom2': 'Chen',
-            'correu': 'joana@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Lin',
+            'surname2': 'Chen',
+            'email': 'joana@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 8,
             'nom': 'Veronica',
-            'cognom1': 'Cartagena',
-            'cognom2': 'Jaldin',
-            'correu': 'veronica@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Cartagena',
+            'surname2': 'Jaldin',
+            'email': 'veronica@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 9,
             'nom': 'Oriana Saray',
-            'cognom1': 'Rojas',
-            'cognom2': 'Guedez',
-            'correu': 'oriana@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Rojas',
+            'surname2': 'Guedez',
+            'email': 'oriana@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 10,
             'nom': 'Eric',
-            'cognom1': 'Sanchez',
-            'cognom2': 'Vazquez',
-            'correu': 'eric@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Sanchez',
+            'surname2': 'Vazquez',
+            'email': 'eric@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 11,
             'nom': 'Junhong',
-            'cognom1': 'Zhu',
-            'cognom2': 'Zhang',
-            'correu': 'junhong@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Zhu',
+            'surname2': 'Zhang',
+            'email': 'junhong@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 12,
             'nom': 'Alexander',
-            'cognom1': 'Andreev',
-            'cognom2': 'Apukhtina',
-            'correu': 'alexander@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Andreev',
+            'surname2': 'Apukhtina',
+            'email': 'alexander@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 13,
             'nom': 'Jesus',
-            'cognom1': 'Pujada',
-            'cognom2': 'Montoya',
-            'correu': 'oriana@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Pujada',
+            'surname2': 'Montoya',
+            'email': 'oriana@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 14,
             'nom': 'Anxo',
-            'cognom1': 'Aragundi',
-            'cognom2': 'Mesias',
-            'correu': 'anxo@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Aragundi',
+            'surname2': 'Mesias',
+            'email': 'anxo@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
             'id': 15,
             'nom': 'Carlos Andres',
-            'cognom1': 'Zambrano',
-            'cognom2': 'Aray',
-            'correu': 'andres@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Zambrano',
+            'surname2': 'Aray',
+            'email': 'andres@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 16,
             'nom': 'Joel',
-            'cognom1': 'Ghanem',
-            'cognom2': 'Gomez',
-            'correu': 'joel@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Ghanem',
+            'surname2': 'Gomez',
+            'email': 'joel@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 17,
             'nom': 'Angel',
-            'cognom1': 'Ivanov',
-            'cognom2': 'Spasov',
-            'correu': 'angel@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Ivanov',
+            'surname2': 'Spasov',
+            'email': 'angel@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
         ,
         {
             'id': 18,
             'nom': 'Dinar',
-            'cognom1': 'Khazimullin',
-            'cognom2': '',
-            'correu': 'dinar@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Khazimullin',
+            'surname2': '',
+            'email': 'dinar@iticbcn.cat',
+            'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         }
     ]
-    return render(request, 'students.html', {'students': students})
+    return render(request, 'student.html', {'students': students})
 
-def teachers(request):
-     teachers = [
+def professor(request):
+    professor = [
         {
             'id': 1,
             'nom': 'Roger',
-            'cognom1': 'Sobrino',
-            'cognom2': 'Gil',
-            'correu': 'roger@iticbcn.cat',
-            'curs': 'DAM2B',
+            'surname1': 'Sobrino',
+            'surname2': 'Gil',
+            'email': 'roger@iticbcn.cat',
+            'course': 'DAM2B',
             'tutor': False,
             'moduls': 'M07'
         },
         {
             'id': 2,
             'nom': 'Juanma',
-            'cognom1': 'Sanchez',
-            'cognom2': 'Bel',
-            'correu': 'juanma@iticbcn.cat',
-            'curs': 'DAW2A',
+            'surname1': 'Sanchez',
+            'surname2': 'Bel',
+            'email': 'juanma@iticbcn.cat',
+            'course': 'DAW2A',
             'tutor': True,
             'moduls': 'M06'
         },
         {
             'id': 3,
             'nom': 'Xavi',
-            'cognom1': 'Quesada',
-            'cognom2': 'Puertas',
-            'correu': 'xavi@iticbcn.cat',
-            'curs': 'ASIX2A',
+            'surname1': 'Quesada',
+            'surname2': 'Puertas',
+            'email': 'xavi@iticbcn.cat',
+            'course': 'ASIX2A',
             'tutor': False,
             'moduls': 'M08, MAH'
         },
         {
             'id': 4,
             'nom': 'Josep Oriol',
-            'cognom1': 'Roca',
-            'cognom2': 'Fabra',
-            'correu': 'oriol@iticbcn.cat',
-            'curs': 'DAW2B',
+            'surname1': 'Roca',
+            'surname2': 'Fabra',
+            'email': 'oriol@iticbcn.cat',
+            'course': 'DAW2B',
             'tutor': False,
             'moduls': 'M09'
         }
     ]
-    return render(request, 'teachers.html', {'teachers': teachers})
+    return render(request, 'professor.html', {'professor': professor})
 
-   
