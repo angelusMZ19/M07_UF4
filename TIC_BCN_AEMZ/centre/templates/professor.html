@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROFESSOR</title>
-</head>
-<body>
+
     
-</body>
-</html>
+   
+    {% extends 'index_centre.html' %}
+    {% block content %}
+
+    <table>
+        
+        <tr>
+            <th>NOM</th>
+            <th>SURNAME1</th>
+            <th>SURNAME2</th>
+            <th>EMAIL</th>
+            <th>COURSE</th>
+            <th>MODULS</th>
+        </tr>
+
+        {% for sensei in professor %}
+        <tr>
+            <td>{{ sensei.nom }}</td>
+            <td>{{ sensei.surname1 }}</td>
+            <td>{{ sensei.surname2 }}</td>
+            <td>{{ sensei.email }}</td>
+            <td>{{ sensei.course }}</td>
+            <td>{{ sensei.moduls }}</td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+<br/>
+    <!-- <a href="{% url 'professor' %}">Go back</a> -->
+    {% endblock %}

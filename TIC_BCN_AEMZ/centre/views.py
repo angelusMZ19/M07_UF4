@@ -216,7 +216,7 @@ def professor(request):
         },
         {
             'id': 4,
-            'nom': 'Josep Oriol',
+            'nom': 'Oriol',
             'surname1': 'Roca',
             'surname2': 'Fabra',
             'email': 'oriol@iticbcn.cat',
