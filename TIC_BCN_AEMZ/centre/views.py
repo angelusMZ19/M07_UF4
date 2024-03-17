@@ -2,16 +2,20 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # 
 from django.template import loader
-from django.shortcuts import render
 
-def index(request):
-    template=loader.get_template('index_centre.html')
-    return HttpResponse(template.render())
 
-def students(request):
-    students = [
-        {
+studentList = [
+     {
             'id': 1,
+            'nom': 'Angelo Enrique',
+            'surname1': 'Montenegro',
+            'surname2': 'Zavala',
+            'email': 'angelo@iticbcn.cat',
+            'course': 'DAW2A',
+            'moduls': 'M06, M07, M08, M09, MAH'
+        },
+        {
+            'id': 2,
             'nom': 'Oscar',
             'surname1': 'Perez',
             'surname2': 'Mengual',
@@ -20,7 +24,7 @@ def students(request):
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
-            'id': 2,
+            'id': 3,
             'nom': 'Adria',
             'surname1': 'Garcia',
             'surname2': 'Perez',
@@ -29,7 +33,7 @@ def students(request):
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
-            'id': 3,
+            'id': 4,
             'nom': 'Gemma',
             'surname1': 'Garrigosa',
             'surname2': 'Frances',
@@ -38,20 +42,11 @@ def students(request):
             'moduls': 'M06, M07, M08, M09, MAH'
         },
         {
-            'id': 4,
+            'id': 5,
             'nom': 'Facundo Calixto',
             'surname1': 'Barrios',
             'surname2': '',
             'email': 'facundo@iticbcn.cat',
-            'course': 'DAW2A',
-            'moduls': 'M06, M07, M08, M09, MAH'
-        },
-        {
-            'id': 5,
-            'nom': 'Angelo Enrique',
-            'surname1': 'Montenegro',
-            'surname2': 'Zavala',
-            'email': 'angelo@iticbcn.cat',
             'course': 'DAW2A',
             'moduls': 'M06, M07, M08, M09, MAH'
         },
@@ -180,10 +175,8 @@ def students(request):
             'moduls': 'M06, M07, M08, M09, MAH'
         }
     ]
-    return render(request, 'student.html', {'students': students})
 
-def professor(request):
-    professor = [
+professorList = [
         {
             'id': 1,
             'nom': 'Roger',
@@ -225,5 +218,27 @@ def professor(request):
             'moduls': 'M09'
         }
     ]
-    return render(request, 'professor.html', {'professor': professor})
+def index(request):
+    template=loader.get_template('index_centre.html')
+    return HttpResponse(template.render())
 
+def students(request):
+    return render(request, 'student.html', {'students': studentList})
+
+def professor(request):
+    
+    return render(request, 'professor.html', {'professor': professorList})
+
+def infoProfessor(request, pk):
+    profe = None
+    for i in professorList:
+        if i['id'] == pk:
+            profe = i
+    return render(request, 'info_prof.html', {'professor':profe}) 
+
+def infoStudents(request, pk):
+    estudiante = None
+    for i in studentList:
+        if i['id'] == pk:
+            estudiante = i
+    return render(request, 'info_student.html', {'student':estudiante})

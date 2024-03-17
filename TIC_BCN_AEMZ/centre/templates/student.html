@@ -1,32 +1,34 @@
-
-    
-   
+  
     {% extends 'index_centre.html' %}
     {% block content %}
-
+    <h1>Informacion TIC Barcelona (Alumant)</h1>
     <table>
         
-        <tr>
+        <tr><th>ID</th>
             <th>NOM</th>
-            <th>SURNAME1</th>
+            <th> ... </th>
+            <!-- <th>SURNAME1</th>
             <th>SURNAME2</th>
             <th>EMAIL</th>
             <th>COURSE</th>
-            <th>MODULS</th>
+            <th>MODULS</th> -->
         </tr>
 
         {% for muchacho in students %}
         <tr>
+            <td>{{ muchacho.id }}</td>
             <td>{{ muchacho.nom }}</td>
+            <td><a href="{% url 'plus_students' muchacho.id %}">+_info</a></td>
+            <!-- <td>{{ muchacho.rol }}</td>
             <td>{{ muchacho.surname1 }}</td>
             <td>{{ muchacho.surname2 }}</td>
             <td>{{ muchacho.email }}</td>
             <td>{{ muchacho.course }}</td>
-            <td>{{ muchacho.moduls }}</td>
+            <td>{{ muchacho.moduls }}</td> -->
             
         </tr>
         {% endfor %}
     </table>
 <br/>
-    <!-- <a href="{% url 'students' %}">Go back</a> -->
+    <a href="{% url 'students' %}">Go back</a>
     {% endblock %}

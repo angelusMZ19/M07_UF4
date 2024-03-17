@@ -1,0 +1,15 @@
+
+{% extends 'index_centre.html' %}
+
+{% block content %}
+    <h1>Informació del professorat {{ profe.name }}</h1>
+    <ul>
+        <li>ID: {{ profe.id }}</li>
+        <li>Nom: {{ profe.name }}</li>
+        <li>Cognom1: {{ profe.surname1 }}</li>
+        <li>Cognom2: {{ profe.surname2 }}</li>
+        <li>Email: {{ profe.email }}</li>
+    </ul><br>
+    <p><a href="{% url 'professor' %}">Back</a></p>  
+{% endblock %}
+    
