@@ -1,0 +1,25 @@
+  
+    {% extends 'index_centre.html' %}
+    {% block content %}
+    <h1>Informacion TIC Barcelona (Alumant)</h1>
+    <table>
+        
+        <tr><th>ID</th>
+            <th>NOM</th>
+            <th> ... </th>
+            
+        </tr>
+
+        {% for student in estudiante %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.nom }}</td>
+            <td><a href="{% url 'plus_students' student.id %}">+Info</a></td>
+            
+            
+        </tr>
+        {% endfor %}
+    </table>
+<br/>
+    <a href="{% url 'students' %}">Go back</a>
+    {% endblock %}
