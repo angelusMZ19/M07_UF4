@@ -1,13 +1,15 @@
 {% extends 'index_centre.html' %}
 
 {% block content %}
-    <h1>Informació de l'alumne {{ estudiante.name }}</h1>
+    <h1>Informació de l'alumne <u>{{ student.nom }}</u></h1>
     <ul>
-        <li>ID: {{ estudiante.id }}</li>
-        <li>Nom: {{ estudiante.name }}</li>
-        <li>Cognom1: {{ estudiante.surname1 }}</li>
-        <li>Cognom2: {{ estudiante.surname2 }}</li>
-        <li>Email: {{ estudiante.email }}</li>
+        <li>ID: {{ student.id }}</li>
+        <li>Nom: {{ student.nom }}</li>
+        <li>Cognom1: {{ student.surname1 }}</li>
+        <li>Cognom2: {{ student.surname2 }}</li>
+        <li>Email: {{ student.email }}</li>
+        <li>Course: {{ student.course}}</li>
+        <li>Modulo: {{ student.moduls }}</li>
     </ul><br>
     <p><a href="{% url 'students' %}"> Back </a></p>  
 {% endblock %}

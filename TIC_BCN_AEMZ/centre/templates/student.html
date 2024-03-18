@@ -7,24 +7,15 @@
         <tr><th>ID</th>
             <th>NOM</th>
             <th> ... </th>
-            <!-- <th>SURNAME1</th>
-            <th>SURNAME2</th>
-            <th>EMAIL</th>
-            <th>COURSE</th>
-            <th>MODULS</th> -->
+            
         </tr>
 
-        {% for muchacho in students %}
+        {% for student in estudiante %}
         <tr>
-            <td>{{ muchacho.id }}</td>
-            <td>{{ muchacho.nom }}</td>
-            <td><a href="{% url 'plus_students' muchacho.id %}">+_info</a></td>
-            <!-- <td>{{ muchacho.rol }}</td>
-            <td>{{ muchacho.surname1 }}</td>
-            <td>{{ muchacho.surname2 }}</td>
-            <td>{{ muchacho.email }}</td>
-            <td>{{ muchacho.course }}</td>
-            <td>{{ muchacho.moduls }}</td> -->
+            <td>{{ student.id }}</td>
+            <td>{{ student.nom }}</td>
+            <td><a href="{% url 'plus_students' student.id %}">+Info</a></td>
+            
             
         </tr>
         {% endfor %}

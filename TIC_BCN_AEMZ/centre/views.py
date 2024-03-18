@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # 
-from django.template import loader
+from django.template import Context, loader
 
 
 studentList = [
-     {
+        {
             'id': 1,
             'nom': 'Angelo Enrique',
             'surname1': 'Montenegro',
@@ -223,11 +223,12 @@ def index(request):
     return HttpResponse(template.render())
 
 def students(request):
-    return render(request, 'student.html', {'students': studentList})
+    
+    return render(request, 'student.html', {'estudiante': studentList})
 
 def professor(request):
     
-    return render(request, 'professor.html', {'professor': professorList})
+    return render(request, 'professor.html', {'teacher': professorList})
 
 def infoProfessor(request, pk):
     profe = None

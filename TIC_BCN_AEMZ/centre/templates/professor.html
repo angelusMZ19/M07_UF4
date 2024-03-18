@@ -1,6 +1,3 @@
-
-    
-   
     {% extends 'index_centre.html' %}
     {% block content %}
     <h1>Informacion TIC Barcelona (Profesorado)</h1>
@@ -9,23 +6,15 @@
             <th>ID</th>
             <th>NOM</th>
             <th> ... </th>
-            <!-- <th>SURNAME1</th>
-            <th>SURNAME2</th>
-            <th>EMAIL</th>
-            <th>COURSE</th>
-            <th>MODULS</th> -->
+           
         </tr>
 
-        {% for sensei in professor %}
+        {% for sensei in teacher %}
         <tr>
             <td>{{ sensei.id }}</td>
             <td>{{ sensei.nom }}</td>
-            <td><a href="{% url 'plus_professor' sensei.id %}">+_info</a></td>
-            <!-- <td>{{ sensei.surname1 }}</td>
-            <td>{{ sensei.surname2 }}</td>
-            <td>{{ sensei.email }}</td>
-            <td>{{ sensei.course }}</td>
-            <td>{{ sensei.moduls }}</td> -->
+            <td><a href="{% url 'plus_professor' sensei.id %}">+Info</a></td>
+           
             
         </tr>
         {% endfor %}
