@@ -1,0 +1,24 @@
+    {% extends 'index_centre.html' %}
+    {% block content %}
+    <h1>Informacion TIC Barcelona (Profesorado)</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th> ... </th>
+           
+        </tr>
+
+        {% for sensei in teacher %}
+        <tr>
+            <td>{{ sensei.id }}</td>
+            <td>{{ sensei.nom }}</td>
+            <td><a href="{% url 'plus_professor' sensei.id %}">+Info</a></td>
+           
+            
+        </tr>
+        {% endfor %}
+    </table>
+<br/>
+    <a href="{% url 'professor' %}">Go back</a>
+    {% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends 'index_centre.html' %}
+
+{% block content %}
+    <h1>Informació del profesorado <u>{{ professor.nom }}</u></h1>
+    <ul>
+        <li>ID: {{ professor.id }}</li>
+        <li>Nom: {{ professor.nom }}</li>
+        <li>Cognom1: {{ professor.surname1 }}</li>
+        <li>Cognom2: {{ professor.surname2 }}</li>
+        <li>Email: {{ professor.email }}</li>
+        <li>Course: {{ professor.course}}</li>
+        <li>Tutor: {{ professor.tutor }}</li>
+        <li>Modulo: {{ professor.moduls }}</li>
+    </ul><br>
+    <p><a href="{% url 'professor' %}">Back</a></p>  
+{% endblock %}
+    
