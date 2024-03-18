@@ -78,9 +78,12 @@ WSGI_APPLICATION = 'TIC_BCN_AEMZ.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # poner aqui la configuracion de la base de datos 
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ITIC_DB',
+        'USER':'ITIC_user',
+        'PASSWORD': 'ITIC',
+        'HOST':'localhost',
+        'PORT':'5432' 
     }
 }
 
