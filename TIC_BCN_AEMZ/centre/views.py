@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import PersonForm
 # 
 from django.template import Context, loader
 
@@ -221,15 +222,15 @@ professorList = [
 def index(request):
     template=loader.get_template('index_centre.html')
     return HttpResponse(template.render())
-
+# funcion student
 def students(request):
-    
     return render(request, 'student.html', {'estudiante': studentList})
 
+# funcion professor
 def professor(request):
-    
     return render(request, 'professor.html', {'teacher': professorList})
 
+# funcion de +info professor
 def infoProfessor(request, pk):
     profe = None
     for i in professorList:
@@ -237,9 +238,17 @@ def infoProfessor(request, pk):
             profe = i
     return render(request, 'info_prof.html', {'professor':profe}) 
 
+# funcion de +info students
 def infoStudents(request, pk):
     estudiante = None
     for i in studentList:
         if i['id'] == pk:
             estudiante = i
     return render(request, 'info_student.html', {'student':estudiante})
+
+
+# funcion para formulario
+def form_user(request):
+    form= PersonForm()
+    context={'form': form}
+    return render(request, 'form.html', context)
