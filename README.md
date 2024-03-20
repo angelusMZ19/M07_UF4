@@ -49,3 +49,28 @@ y para realizar la migracion a plenitud se ejecuta el comando:
 * En el sigueinte enlace al video se podra observar como se generan las migraciones en una base de datos que se encuentra vacia:
 
 [video_migracion](https://drive.google.com/file/d/1s32ln-H2QW4rcMpI7q6KeZbPbzFE1wUO/view?usp=sharing)
+
+
+# FORM (PRACTICA 3)
+
+Evidencia CON uso de ('as_p'):
+```java
+<form action="" method="POST">
+    {%csrf_token%}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+{% endblock %}
+```
+![con('as_p')](./img/formCON.png)
+
+Evidencia SIN uso de ('as_p'):
+```java
+<form action="" method="POST">
+    {%csrf_token%}
+    {{ form }}
+    <input type="submit">
+</form>
+{% endblock %}
+```
+![sin('as_p')](./img/formSIN.png)
