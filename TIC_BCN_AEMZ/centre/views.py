@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .forms import PersonForm
 # 
@@ -250,5 +250,12 @@ def infoStudents(request, pk):
 # funcion para formulario
 def form_user(request):
     form= PersonForm()
+    if request.method == 'POST':
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('students')
     context={'form': form}
     return render(request, 'form.html', context)
+
+
