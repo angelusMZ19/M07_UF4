@@ -256,6 +256,6 @@ def form_user(request):
             form.save()
             return redirect('students')
     context={'form': form}
-    return render(request, 'form.html', context)
+    return render(request, 'form.html', context) 
 
 
