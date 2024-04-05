@@ -2,9 +2,11 @@
 {% block content %}
 <h1>Formulario</h1>
 
-<form action="{% url 'students' %}" method="POST">
+<form action="" method="POST">
     {%csrf_token%}
     {{ form.as_p }}
     <input type="submit" >
 </form>
 {% endblock %}
+
+<!-- {% url 'students' %} -->
