@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .forms import PersonForm
+from .forms import StudentForm , ProfessorForm
+from .models import Student, Professor
 # 
 from django.template import Context, loader
 
@@ -222,13 +223,23 @@ professorList = [
 def index(request):
     template=loader.get_template('index_centre.html')
     return HttpResponse(template.render())
-# funcion student
-def students(request):
-    return render(request, 'student.html', {'estudiante': studentList})
 
-# funcion professor
+# funcion student
+# def students(request):
+#     return render(request, 'student.html', {'estudiante': studentList})
+
+# read de estuadiantes
+def students(request):
+    studiente = Student.objects.all()
+    return render(request, 'student.html', {'estudiante': studiente})
+
+# # funcion professor
+# def professor(request):
+#     return render(request, 'professor.html', {'teacher': professorList})
+
 def professor(request):
-    return render(request, 'professor.html', {'teacher': professorList})
+    profe = Professor.objects.all()
+    return render(request, 'professor.html', {'teacher': profe })
 
 # funcion de +info professor
 def infoProfessor(request, pk):
@@ -248,14 +259,24 @@ def infoStudents(request, pk):
 
 
 # funcion para formulario
-def form_user(request):
-    form= PersonForm()
+def form_student(request):
+    form= StudentForm()
     if request.method == 'POST':
-        form = PersonForm(request.POST)
+        form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('students')
-    context={'form': form}
-    return render(request, 'form.html', context) 
+    context={'forms': form}
+    return render(request, 'formS.html', context) 
 
 
+
+def form_professor(request):
+    form= ProfessorForm()
+    if request.method == 'POST':
+        form = ProfessorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('professor')
+    context={'formP': form}
+    return render(request, 'formP.html', context) 
