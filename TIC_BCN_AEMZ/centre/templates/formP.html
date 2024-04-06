@@ -1,0 +1,11 @@
+{% extends 'index_centre.html' %}
+{% block content %}
+<h1>Formulario Professor</h1>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    {{ formP.as_p }}
+    <input type="submit" >
+</form>
+{% endblock %}
+
