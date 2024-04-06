@@ -13,6 +13,7 @@
         <li>Tutor: {{ professor.tutor }}</li>
         <li>Modulo: {{ professor.moduls }}</li>
     </ul><br>
-    <p><a href="{% url 'professor' %}">Back</a></p>  
+    <p><a href="{% url 'professor' %}">Back</a></p> 
+    <td><a href="{% url 'updateP' professor.id %}">EDIT</a></td> 
 {% endblock %}
     

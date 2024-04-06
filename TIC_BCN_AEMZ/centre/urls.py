@@ -12,5 +12,10 @@ urlpatterns = [
     path('professor/plusProfessor/<int:pk>', views.infoProfessor, name= 'plus_professor'),
     # se crea ruta de formulario 
     path('formP/', views.form_professor , name='form_P'),
-    path('formS/', views.form_student, name='form_S')
+    path('formS/', views.form_student, name='form_S'),
+    # rutas update para ambas listas
+    path('updateP/<int:pk>', views.updateProfessor, name='updateP'),
+    path('updateS/<int:pk>', views.updateStudent, name='updateS'),
+
+
 ]

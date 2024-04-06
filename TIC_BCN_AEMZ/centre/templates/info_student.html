@@ -11,6 +11,7 @@
         <li>Course: {{ student.course}}</li>
         <li>Modulo: {{ student.moduls }}</li>
     </ul><br>
-    <p><a href="{% url 'students' %}"> Back </a></p>  
+    <p><a href="{% url 'students' %}"> Back </a></p> 
+    <td><a href="{% url 'updateS' student.id %}">EDIT</a></td>  
 {% endblock %}
     

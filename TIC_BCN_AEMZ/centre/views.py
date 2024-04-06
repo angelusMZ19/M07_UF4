@@ -242,19 +242,26 @@ def professor(request):
     return render(request, 'professor.html', {'teacher': profe })
 
 # funcion de +info professor
+# def infoProfessor(request, pk):
+#     profe = None
+#     for i in professorList:
+#         if i['id'] == pk:
+#             profe = i
+#     return render(request, 'info_prof.html', {'professor':profe}) 
 def infoProfessor(request, pk):
-    profe = None
-    for i in professorList:
-        if i['id'] == pk:
-            profe = i
-    return render(request, 'info_prof.html', {'professor':profe}) 
+    profes = Professor.objects.get(id=pk)
+    return render(request, 'info_prof.html', {'professor':profes}) 
 
 # funcion de +info students
+# def infoStudents(request, pk):
+#     estudiante = None
+#     for i in studentList:
+#         if i['id'] == pk:
+#             estudiante = i
+#     return render(request, 'info_student.html', {'student':estudiante})
+
 def infoStudents(request, pk):
-    estudiante = None
-    for i in studentList:
-        if i['id'] == pk:
-            estudiante = i
+    estudiante = Student.objects.get(id=pk)
     return render(request, 'info_student.html', {'student':estudiante})
 
 
@@ -266,7 +273,7 @@ def form_student(request):
         if form.is_valid():
             form.save()
             return redirect('students')
-    context={'forms': form}
+    context={'formS': form}
     return render(request, 'formS.html', context) 
 
 
@@ -280,3 +287,29 @@ def form_professor(request):
             return redirect('professor')
     context={'formP': form}
     return render(request, 'formP.html', context) 
+
+
+def updateStudent(request, pk):
+    datosS = Student.objects.get(id=pk) 
+    form = StudentForm(instance=datosS)
+
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=datosS)
+        if form.is_valid():
+            form.save() 
+            return redirect('students')
+
+    context = {'formS': form}
+    return render(request, 'formS.html', context)
+
+
+def updateProfessor(request, pk):
+    datosP = Professor.objects.get(id=pk)
+    form = ProfessorForm(instance=datosP)
+    if request.method == 'POST':
+        form = ProfessorForm(request.POST, instance=datosP)
+        if form.is_valid():
+            form.save() 
+            return redirect('professor')
+    context = {'formP': form}
+    return render(request, 'formP.html', context)
