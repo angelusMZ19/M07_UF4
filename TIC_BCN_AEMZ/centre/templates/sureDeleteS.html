@@ -4,7 +4,7 @@
 <form action="" method="POST">
     {% csrf_token %}
     <p>Seguro deseas eleminar este Estudiante: "{{userS.nom}} {{userS.surname1}}"?</p>
-    <button><a href="{% url 'student' %}">TORNAR</a></button>
+    <a href="{% url 'student' %}">TORNAR</a>
     <input type="submit" value="CONFIRMAR" />
 </form>
 
