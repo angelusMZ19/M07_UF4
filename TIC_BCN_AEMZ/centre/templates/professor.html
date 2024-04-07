@@ -13,7 +13,9 @@
         <tr>
             <td>{{ sensei.id }}</td>
             <td>{{ sensei.nom }}</td>
-            <td><a href="{% url 'plus_professor' sensei.id %}">+Info</a></td>
+            <td><a href="{% url 'plus_professor' sensei.id %}">+INFO</a></td>
+            <td><a href="{% url 'updateP' sensei.id %}">EDIT</a></td> 
+        <td><a href="{% url 'deleteP' sensei.id %}">DELETE</a></td> 
            
             
         </tr>

@@ -2,16 +2,30 @@
 
 {% block content %}
     <h1>Informació de l'alumne <u>{{ student.nom }}</u></h1>
-    <ul>
-        <li>ID: {{ student.id }}</li>
-        <li>Nom: {{ student.nom }}</li>
-        <li>Cognom1: {{ student.surname1 }}</li>
-        <li>Cognom2: {{ student.surname2 }}</li>
-        <li>Email: {{ student.email }}</li>
-        <li>Course: {{ student.course}}</li>
-        <li>Modulo: {{ student.moduls }}</li>
-    </ul><br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Cognom1</th>
+            <th>Cognom2</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Modulo</th>
+        </tr>
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.nom }}</td>
+            <td>{{ student.surname1 }}</td>
+            <td>{{ student.surname2 }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.moduls }}</td>
+        </tr>
+    </table>
+<br>
     <p><a href="{% url 'students' %}"> Back </a></p> 
-    <td><a href="{% url 'updateS' student.id %}">EDIT</a></td>  
+    <td><a href="{% url 'updateS' student.id %}">EDIT</a></td> 
+    <td><a href="{% url 'deleteS' student.id %}">DELETE</a></td> 
+ 
 {% endblock %}
     

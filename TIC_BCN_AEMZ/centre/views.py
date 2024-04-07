@@ -313,3 +313,21 @@ def updateProfessor(request, pk):
             return redirect('professor')
     context = {'formP': form}
     return render(request, 'formP.html', context)
+
+
+def deleteStudent (request, pk):
+    userS = Student.objects.get(id=pk)
+    if request.method == 'POST':
+        userS.delete()
+        return redirect('students')
+    context = {'userS':userS}
+    return render(request, 'student.html', context)
+
+def deleteProfessor (request, pk):
+    userP = Professor.objects.get(id=pk)
+    if request.method == 'POST':
+        userP.delete()
+        return redirect('professor')
+    context = {'userP':userP}
+    return render(request, 'sureDeleteP.html', context)
+
