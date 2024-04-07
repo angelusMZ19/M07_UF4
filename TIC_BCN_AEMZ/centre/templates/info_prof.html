@@ -3,16 +3,31 @@
 
 {% block content %}
     <h1>Informació del profesorado <u>{{ professor.nom }}</u></h1>
-    <ul>
-        <li>ID: {{ professor.id }}</li>
-        <li>Nom: {{ professor.nom }}</li>
-        <li>Cognom1: {{ professor.surname1 }}</li>
-        <li>Cognom2: {{ professor.surname2 }}</li>
-        <li>Email: {{ professor.email }}</li>
-        <li>Course: {{ professor.course}}</li>
-        <li>Tutor: {{ professor.tutor }}</li>
-        <li>Modulo: {{ professor.moduls }}</li>
-    </ul><br>
-    <p><a href="{% url 'professor' %}">Back</a></p>  
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Cognom1</th>
+            <th>Cognom2</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Tutor</th>
+            <th>Modulo</th>
+        </tr>
+        <tr>
+            <td>{{ professor.id }}</td>
+            <td>{{ professor.nom }}</td>
+            <td>{{ professor.surname1 }}</td>
+            <td>{{ professor.surname2 }}</td>
+            <td>{{ professor.email }}</td>
+            <td>{{ professor.course }}</td>
+            <td>{{ professor.tutor }}</td>
+            <td>{{ professor.moduls }}</td>
+        </tr>
+    </table>
+    <br>
+    <p><a href="{% url 'professor' %}">Back</a></p> 
+    <td><a href="{% url 'updateP' professor.id %}">EDIT</a></td> 
+    <td><a href="{% url 'deleteP' professor.id %}">DELETE</a></td> 
 {% endblock %}
     

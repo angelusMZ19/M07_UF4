@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .forms import PersonForm
+from .forms import StudentForm , ProfessorForm
+from .models import Student, Professor
 # 
 from django.template import Context, loader
 
@@ -222,33 +223,111 @@ professorList = [
 def index(request):
     template=loader.get_template('index_centre.html')
     return HttpResponse(template.render())
-# funcion student
-def students(request):
-    return render(request, 'student.html', {'estudiante': studentList})
 
-# funcion professor
+# funcion student
+# def students(request):
+#     return render(request, 'student.html', {'estudiante': studentList})
+
+# read de estuadiantes
+def students(request):
+    studiente = Student.objects.all()
+    return render(request, 'student.html', {'estudiante': studiente})
+
+# # funcion professor
+# def professor(request):
+#     return render(request, 'professor.html', {'teacher': professorList})
+
 def professor(request):
-    return render(request, 'professor.html', {'teacher': professorList})
+    profe = Professor.objects.all()
+    return render(request, 'professor.html', {'teacher': profe })
 
 # funcion de +info professor
+# def infoProfessor(request, pk):
+#     profe = None
+#     for i in professorList:
+#         if i['id'] == pk:
+#             profe = i
+#     return render(request, 'info_prof.html', {'professor':profe}) 
 def infoProfessor(request, pk):
-    profe = None
-    for i in professorList:
-        if i['id'] == pk:
-            profe = i
-    return render(request, 'info_prof.html', {'professor':profe}) 
+    profes = Professor.objects.get(id=pk)
+    return render(request, 'info_prof.html', {'professor':profes}) 
 
 # funcion de +info students
+# def infoStudents(request, pk):
+#     estudiante = None
+#     for i in studentList:
+#         if i['id'] == pk:
+#             estudiante = i
+#     return render(request, 'info_student.html', {'student':estudiante})
+
 def infoStudents(request, pk):
-    estudiante = None
-    for i in studentList:
-        if i['id'] == pk:
-            estudiante = i
+    estudiante = Student.objects.get(id=pk)
     return render(request, 'info_student.html', {'student':estudiante})
 
 
 # funcion para formulario
-def form_user(request):
-    form= PersonForm()
-    context={'form': form}
-    return render(request, 'form.html', context)
+def form_student(request):
+    form= StudentForm()
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('students')
+    context={'formS': form}
+    return render(request, 'formS.html', context) 
+
+
+
+def form_professor(request):
+    form= ProfessorForm()
+    if request.method == 'POST':
+        form = ProfessorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('professor')
+    context={'formP': form}
+    return render(request, 'formP.html', context) 
+
+
+def updateStudent(request, pk):
+    datosS = Student.objects.get(id=pk) 
+    form = StudentForm(instance=datosS)
+
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=datosS)
+        if form.is_valid():
+            form.save() 
+            return redirect('students')
+
+    context = {'formS': form}
+    return render(request, 'formS.html', context)
+
+
+def updateProfessor(request, pk):
+    datosP = Professor.objects.get(id=pk)
+    form = ProfessorForm(instance=datosP)
+    if request.method == 'POST':
+        form = ProfessorForm(request.POST, instance=datosP)
+        if form.is_valid():
+            form.save() 
+            return redirect('professor')
+    context = {'formP': form}
+    return render(request, 'formP.html', context)
+
+
+def deleteStudent (request, pk):
+    userS = Student.objects.get(id=pk)
+    if request.method == 'POST':
+        userS.delete()
+        return redirect('students')
+    context = {'userS':userS}
+    return render(request, 'student.html', context)
+
+def deleteProfessor (request, pk):
+    userP = Professor.objects.get(id=pk)
+    if request.method == 'POST':
+        userP.delete()
+        return redirect('professor')
+    context = {'userP':userP}
+    return render(request, 'sureDeleteP.html', context)
+

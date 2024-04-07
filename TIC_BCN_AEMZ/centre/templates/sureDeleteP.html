@@ -1,0 +1,11 @@
+{% extends 'index_centre.html' %}
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Seguro deseas eleminar este Profesor: "{{userP.nom}} {{userP.surname1}}"?</p>
+    <button><a href="{% url 'professor' %}">TORNAR</a></button>
+    <input type="submit" value="CONFIRMAR" />
+</form>
+
+{% endblock %}
