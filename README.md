@@ -74,3 +74,45 @@ Evidencia SIN uso de ('as_p'):
 {% endblock %}
 ```
 ![sin('as_p')](./img/formSIN.png)
+
+# CRUD (PRACTICA 4)
+
+[video_demostracion_CRUD](https://drive.google.com/file/d/1v_oeY5NRXb4MLCmcvxRBdW0e197lyhX4/view?usp=sharing)
+
+Evidencias(Estudiante):
+
+* Create Student:
+
+![Create_Student](./img/createS.png)
+
+* Update Student:
+
+![Update_Student](./img/editS.png)
+
+* Delete Student:
+
+![Delete_Student](./img/deleteS.png)
+
+* Read despues del Delete Student:
+
+![Read_DeleteS](./img/despuesDeleteS.png)
+
+
+
+Evidencias(Professor):
+
+* Create Professor:
+
+![Create_Professor](./img/createP.png)
+
+* Update Professor:
+
+![Update_Professor](./img/editP.png)
+
+* Delete Professor:
+
+![Delete_Professor](./img/deleteP.png)
+
+* Read despues del Delete Professor:
+
+![Read_DeleteP](./img/despuesDeleteP.png)
