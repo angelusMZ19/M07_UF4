@@ -321,7 +321,7 @@ def deleteStudent (request, pk):
         userS.delete()
         return redirect('students')
     context = {'userS':userS}
-    return render(request, 'student.html', context)
+    return render(request, 'sureDeleteS.html', context)
 
 def deleteProfessor (request, pk):
     userP = Professor.objects.get(id=pk)
